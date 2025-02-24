@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeuanganKu - Aplikasi Keuangan</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS utama -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>KeuanganKu</h1>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#transactions">Transaksi</a></li>
+                    <li><a href="#goals">Target</a></li>
+                    <li><a href="#" id="openSettings">Pengaturan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard -->
+        <section id="dashboard" class="section">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Saldo</h3>
+                    <p class="balance-amount">Rp 0</p>
+                </div>
+                <div class="card">
+                    <h3>Pemasukan</h3>
+                    <p class="income-amount">Rp 0</p>
+                </div>
+                <div class="card">
+                    <h3>Pengeluaran</h3>
+                    <p class="expense-amount">Rp 0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions -->
+        <section id="transactions" class="section">
+            <h2>Transaksi</h2>
+            <form id="transactionForm">
+                <input type="text" id="description" placeholder="Deskripsi" required>
+                <input type="number" id="amount" placeholder="Jumlah (Rp)" required>
+                <select id="type" required>
+                    <option value="" disabled selected>Pilih Jenis</option>
+                    <option value="income">Pemasukan</option>
+                    <option value="expense">Pengeluaran</option>
+                </select>
+                <select id="category" required>
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <option value="makan">Makan</option>
+                    <option value="transportasi">Transportasi</option>
+                    <option value="hiburan">Hiburan</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+                <button type="submit">Tambah Transaksi</button>
+            </form>
+            <div id="transactionsList"></div>
+        </section>
+
+        <!-- Goals -->
+        <section id="goals" class="section">
+            <h2>Target Keuangan</h2>
+            <form id="goalForm">
+                <input type="text" id="goalTitle" placeholder="Nama Target" required>
+                <input type="number" id="targetAmount" placeholder="Jumlah Target (Rp)" required>
+                <input type="date" id="deadline" required>
+                <button type="submit">Tambah Target</button>
+            </form>
+            <div id="goalsContainer"></div>
+        </section>
+    </main>
+
+    <!-- Modal Pengaturan -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSettings">&times;</span>
+            <h2>Pengaturan</h2>
+            <div class="settings-grid">
+                <div>
+                    <label for="darkMode">Mode Gelap</label>
+                    <input type="checkbox" id="darkMode">
+                </div>
+                <div>
+                    <label for="currency">Konversi Mata Uang</label>
+                    <select id="currency">
+                        <option value="IDR">IDR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 KeuanganKu. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="transactions.js"></script>
+    <script src="goals.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>
